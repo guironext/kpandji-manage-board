@@ -33,6 +33,11 @@ import { toast } from "sonner";
 import { formatNumberWithSpaces } from "@/lib/utils";
 
 const numberToFrench = (num: number): string => {
+  // Vérifier que num est un nombre valide
+  if (num === null || num === undefined || isNaN(num) || !isFinite(num)) {
+    return "zéro";
+  }
+  
   const units = ["", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf"];
   const teens = ["dix", "onze", "douze", "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf"];
   const tens = ["", "", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante-dix", "quatre-vingt", "quatre-vingt-dix"];
@@ -379,7 +384,7 @@ export default function PaiementPage() {
             <div class="payment-row">
               <span class="payment-label">Montant payé en lettre:</span>
               <span class="info-value2">
-              ${numberToFrench(Math.floor(paiement.avance_payee))} francs CFA
+              ${numberToFrench(Math.floor(paiement.avance_payee || 0))} francs CFA
               </span>
             </div>
             <div class="payment-row">

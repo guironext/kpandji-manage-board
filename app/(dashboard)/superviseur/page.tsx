@@ -28,7 +28,7 @@ import {
   getRecentCommercialActivities,
   getMonthlyPerformanceTrends,
 } from "@/lib/actions/superviseur";
-import { Decimal } from "@prisma/client/runtime/library";
+import { Decimal } from "@/lib/generated/prisma/runtime/library";
 
 interface CommercialPerformance {
   id: string;

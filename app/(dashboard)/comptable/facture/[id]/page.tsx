@@ -19,6 +19,11 @@ import { toast } from "sonner";
 import { formatNumberWithSpaces } from "@/lib/utils";
 
 const numberToFrench = (num: number): string => {
+  // Vérifier que num est un nombre valide
+  if (num === null || num === undefined || isNaN(num) || !isFinite(num)) {
+    return "zéro";
+  }
+  
   const units = [
     "",
     "un",
@@ -706,7 +711,7 @@ export default function FactureDetailPage() {
                   <p className="text-sm font-thin text-black">
                     Arrêter la présente facture à la somme de{" "}
                     <span className=" font-semibold">
-                      {numberToFrench(Math.floor(facture.total_ttc))} francs
+                      {numberToFrench(Math.floor(facture.total_ttc || 0))} francs
                       CFA
                     </span>
                   </p>

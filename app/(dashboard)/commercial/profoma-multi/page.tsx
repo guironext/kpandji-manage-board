@@ -27,6 +27,11 @@ const MILLIARD = 1000000000; // 10^9
 const BILLION = 1000000000000; // 10^12
 
 const numberToFrench = (num: number): string => {
+  // Vérifier que num est un nombre valide
+  if (num === null || num === undefined || isNaN(num) || !isFinite(num)) {
+    return "zéro";
+  }
+  
   const units = ["", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf"];
   const teens = ["dix", "onze", "douze", "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf"];
   const tens = ["", "", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante-dix", "quatre-vingt", "quatre-vingt-dix"];
@@ -871,7 +876,7 @@ export default function Page() {
 
                   <div className="mt-4">
                     <p className="text-sm font-thin text-black">
-                      Arrêter la présente facture à la somme de <span className="font-semibold">{numberToFrench(Math.floor(facture.total_ttc))} francs CFA</span>
+                      Arrêter la présente facture à la somme de <span className="font-semibold">{numberToFrench(Math.floor(facture.total_ttc || 0))} francs CFA</span>
                     </p>
                   </div>
 

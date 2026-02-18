@@ -2,7 +2,7 @@
 
 import { clerkClient } from "@clerk/nextjs/server";
 //import { prisma } from "../prisma";
-import { UserRole } from "@/lib/generated/prisma";
+import { UserRole } from "../prisma";
 import { prisma } from "../prisma";
 //import { UserRole } from "@/generated/prisma";
 //import { UserRole } from "@prisma/client";

@@ -1,8 +1,7 @@
 "use server";
 
-import { prisma } from "../prisma";
+import { prisma, Prisma } from "../prisma";
 import { revalidatePath } from "next/cache";
-import { Prisma } from "@/lib/generated/prisma";
 const Decimal = Prisma.Decimal;
 import { currentUser } from "@clerk/nextjs/server";
 

@@ -29,7 +29,7 @@ import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { completeUserOnboarding } from "@/lib/actions/onboarding";
 //import { UserRole } from "@/generated/prisma";
-import { UserRole } from "@/lib/generated/prisma";
+import { UserRole } from "@/lib/prisma";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 
 const employeeSchema = z.object({

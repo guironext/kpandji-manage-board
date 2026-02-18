@@ -1,7 +1,6 @@
 "use server";
 
-import { prisma } from "@/lib/prisma";
-import { EtapeCommande, EtapeConteneur, EtapeCommandeGroupee } from "@/lib/generated/prisma";
+import { prisma, EtapeCommande, EtapeConteneur, EtapeCommandeGroupee } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 
 // Fetch all validated commandes

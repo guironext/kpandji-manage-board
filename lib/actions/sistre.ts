@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { prisma } from "../prisma";
-import { Prisma } from "@/lib/generated/prisma";
+import { Prisma } from "../prisma";
 const Decimal = Prisma.Decimal;
 type DecimalType = InstanceType<typeof Prisma.Decimal>;
 

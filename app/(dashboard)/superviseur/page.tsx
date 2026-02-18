@@ -28,7 +28,7 @@ import {
   getRecentCommercialActivities,
   getMonthlyPerformanceTrends,
 } from "@/lib/actions/superviseur";
-import { Prisma } from "@/lib/generated/prisma";
+import { Prisma } from "@/lib/prisma";
 type Decimal = Prisma.Decimal;
 
 interface CommercialPerformance {

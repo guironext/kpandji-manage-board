@@ -2,7 +2,7 @@
 
 import { prisma } from "../prisma";
 import { revalidatePath } from "next/cache";
-import { Qualite } from "@/lib/generated/prisma";
+import { Qualite } from "../prisma";
 
 export async function createEquipe(data: {
   nomEquipe: string;

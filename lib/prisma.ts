@@ -1,8 +1,23 @@
 //import { PrismaClient } from "@/generated/prisma";
 
-import { PrismaClient, Prisma } from "./generated/prisma";
+import {
+  PrismaClient,
+  Prisma,
+  EtapeCommande,
+  EtapeConteneur,
+  EtapeCommandeGroupee,
+  UserRole,
+  Qualite,
+} from "./generated/prisma";
 
-export { Prisma };
+export {
+  Prisma,
+  EtapeCommande,
+  EtapeConteneur,
+  EtapeCommandeGroupee,
+  UserRole,
+  Qualite,
+};
 import { PrismaPg } from "@prisma/adapter-pg";
 import { config } from "dotenv";
 

@@ -2,7 +2,8 @@
 
 import { prisma } from "../prisma";
 import { revalidatePath } from "next/cache";
-import { Decimal } from "../generated/prisma/runtime/library";
+import { Prisma } from "../generated/prisma";
+const Decimal = Prisma.Decimal;
 
 // Types for serialization
 interface FactureLigne {

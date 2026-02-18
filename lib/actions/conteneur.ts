@@ -2,7 +2,8 @@
 
 import { prisma } from "../prisma";
 import { revalidatePath } from "next/cache";
-import { Decimal } from "../generated/prisma/runtime/library";
+import { Prisma } from "../generated/prisma";
+const Decimal = Prisma.Decimal;
 
 // Type guard for objects with toNumber method
 interface HasToNumber {

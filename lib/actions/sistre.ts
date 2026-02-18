@@ -2,7 +2,8 @@
 
 import { revalidatePath } from "next/cache";
 import { prisma } from "../prisma";
-import { Decimal } from "../generated/prisma/runtime/library";
+import { Prisma } from "../generated/prisma";
+const Decimal = Prisma.Decimal;
 
 export type SistreInvoiceLineItem = {
   id: string;

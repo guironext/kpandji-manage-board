@@ -1,15 +1,17 @@
 "use server";
 
-import { prisma } from "../prisma";
+import { prisma, Prisma } from "../prisma";
 import { revalidatePath } from "next/cache";
-import { Prisma } from "../generated/prisma";
+
+
 const Decimal = Prisma.Decimal;
+type DecimalType = InstanceType<typeof Prisma.Decimal>;
 
 // Types for serialization
 interface FactureLigne {
   id: string;
-  prix_unitaire: Decimal | number | null;
-  montant_ligne: Decimal | number | null;
+  prix_unitaire: DecimalType | number | null;
+  montant_ligne: DecimalType | number | null;
   voitureModel?: { model: string; image?: string | null; description?: string | null } | null;
   [key: string]: unknown;
 }
@@ -18,7 +20,7 @@ interface FactureAccessoire {
   id: string;
   nom: string;
   description?: string | null;
-  prix?: Decimal | number | null;
+  prix?: DecimalType | number | null;
   quantity?: number | null;
   image?: string | null;
   [key: string]: unknown;
@@ -33,20 +35,20 @@ interface FactureWithIncludes {
   accessoire_nom?: string | null;
   accessoire_description?: string | null;
   accessoire_nbr?: number | null;
-  accessoire_prix?: Decimal | number | null;
-  accessoire_subtotal?: Decimal | number | null;
+  accessoire_prix?: DecimalType | number | null;
+  accessoire_subtotal?: DecimalType | number | null;
   bon_pour_acquis?: boolean | null;
-  prix_unitaire: Decimal | number;
-  montant_ht: Decimal | number;
-  total_ht: Decimal | number;
-  remise: Decimal | number;
-  montant_remise: Decimal | number;
-  montant_net_ht: Decimal | number;
-  tva: Decimal | number;
-  montant_tva: Decimal | number;
-  total_ttc: Decimal | number;
-  avance_payee: Decimal | number;
-  reste_payer: Decimal | number;
+  prix_unitaire: DecimalType | number;
+  montant_ht: DecimalType | number;
+  total_ht: DecimalType | number;
+  remise: DecimalType | number;
+  montant_remise: DecimalType | number;
+  montant_net_ht: DecimalType | number;
+  tva: DecimalType | number;
+  montant_tva: DecimalType | number;
+  total_ttc: DecimalType | number;
+  avance_payee: DecimalType | number;
+  reste_payer: DecimalType | number;
   clientId?: string | null;
   clientEntrepriseId?: string | null;
   client?: unknown;

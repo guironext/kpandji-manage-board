@@ -23,18 +23,17 @@ const nextConfig: NextConfig = {
   // Note: Turbopack (used in dev) ignores webpack config and uses serverExternalPackages instead
   // This warning is harmless - webpack config is only used for production builds
   webpack: (config, { isServer }) => {
+    // Ensure generated Prisma client resolves correctly
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '.prisma/client': path.resolve(__dirname, 'lib/generated/prisma'),
+      '@/lib/generated/prisma': path.resolve(__dirname, 'lib/generated/prisma'),
+    };
     if (isServer) {
-      // Handle Prisma with custom output directory
       config.externals = config.externals || [];
       config.externals.push({
         '@prisma/client': 'commonjs @prisma/client',
       });
-      
-      // Copy query engine files
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        '.prisma/client': path.resolve(__dirname, 'lib/generated/prisma'),
-      };
     }
     return config;
   },

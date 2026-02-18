@@ -2,7 +2,7 @@
 
 import { prisma } from "../prisma";
 import { revalidatePath } from "next/cache";
-import type { Prisma } from "../generated/prisma";
+import type { Prisma } from "@/lib/generated/prisma";
 
 export async function createRendezVous(data: {
   date: Date;

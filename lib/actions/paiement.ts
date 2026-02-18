@@ -2,7 +2,7 @@
 
 import { prisma } from "../prisma";
 import { revalidatePath } from "next/cache";
-import { Prisma } from "../generated/prisma";
+import { Prisma } from "@/lib/generated/prisma";
 const Decimal = Prisma.Decimal;
 import { currentUser } from "@clerk/nextjs/server";
 

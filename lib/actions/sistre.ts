@@ -2,8 +2,9 @@
 
 import { revalidatePath } from "next/cache";
 import { prisma } from "../prisma";
-import { Prisma } from "../generated/prisma";
+import { Prisma } from "@/lib/generated/prisma";
 const Decimal = Prisma.Decimal;
+type DecimalType = InstanceType<typeof Prisma.Decimal>;
 
 export type SistreInvoiceLineItem = {
   id: string;
@@ -28,15 +29,15 @@ function serializeInvoice(invoice: {
   id: string;
   invoiceNumber: string;
   invoiceDate: Date;
-  total: Decimal;
+  total: DecimalType;
   createdAt: Date;
   updatedAt: Date;
   items: Array<{
     id: string;
     description: string;
     quantity: number;
-    unitPrice: Decimal;
-    amount: Decimal;
+    unitPrice: DecimalType;
+    amount: DecimalType;
   }>;
 }): SistreInvoice {
   const lineItems = invoice.items.map((item) => ({

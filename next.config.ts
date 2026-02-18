@@ -24,10 +24,14 @@ const nextConfig: NextConfig = {
   // This warning is harmless - webpack config is only used for production builds
   webpack: (config, { isServer }) => {
     // Ensure generated Prisma client resolves correctly
+    const prismaPath = path.resolve(__dirname, 'lib/generated/prisma');
     config.resolve.alias = {
       ...config.resolve.alias,
-      '.prisma/client': path.resolve(__dirname, 'lib/generated/prisma'),
-      '@/lib/generated/prisma': path.resolve(__dirname, 'lib/generated/prisma'),
+      '.prisma/client': prismaPath,
+      '@/lib/generated/prisma': prismaPath,
+      'lib/generated/prisma': prismaPath,
+      '#prisma': prismaPath,
+      // Resolve ./generated/prisma from lib/prisma.ts
     };
     if (isServer) {
       config.externals = config.externals || [];
@@ -43,6 +47,9 @@ const nextConfig: NextConfig = {
   turbopack: {
     resolveAlias: {
       '.prisma/client': path.resolve(__dirname, 'lib/generated/prisma'),
+      '@/lib/generated/prisma': path.resolve(__dirname, 'lib/generated/prisma'),
+      'lib/generated/prisma': path.resolve(__dirname, 'lib/generated/prisma'),
+      '#prisma': path.resolve(__dirname, 'lib/generated/prisma'),
     },
   },
   // Skip metadata generation for favicon to avoid cache issues

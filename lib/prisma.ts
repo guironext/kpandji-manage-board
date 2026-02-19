@@ -8,7 +8,7 @@ import {
   EtapeCommandeGroupee,
   UserRole,
   Qualite,
-} from "@/lib/generated/prisma";
+} from "./generated-prisma";
 
 export {
   Prisma,
@@ -21,10 +21,14 @@ export {
 import { PrismaPg } from "@prisma/adapter-pg";
 import { config } from "dotenv";
 
+const globalForPrisma = globalThis as unknown as {
+  prisma: PrismaClient | undefined;
+};
+
 // Ensure environment variables are loaded before PrismaClient initialization
 config();
 
-const globalForPrisma = globalThis as unknown as { prisma: PrismaClient | undefined}
+
 
 // Prisma 7 requires adapter or accelerateUrl. During build time, use dummy URL for adapter.
 const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build' || (!process.env.DATABASE_URL && process.env.NODE_ENV !== 'development');

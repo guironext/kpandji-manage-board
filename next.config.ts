@@ -31,7 +31,6 @@ const nextConfig: NextConfig = {
       '@/lib/generated/prisma': prismaPath,
       'lib/generated/prisma': prismaPath,
       '#prisma': prismaPath,
-      // Resolve ./generated/prisma from lib/prisma.ts
     };
     if (isServer) {
       config.externals = config.externals || [];

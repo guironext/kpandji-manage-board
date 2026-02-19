@@ -8,7 +8,7 @@ import {
   EtapeCommandeGroupee,
   UserRole,
   Qualite,
-} from "./generated-prisma";
+} from "./generated/prisma";
 
 export {
   Prisma,

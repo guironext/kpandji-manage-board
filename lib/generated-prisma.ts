@@ -10,4 +10,4 @@ export {
   EtapeCommandeGroupee,
   UserRole,
   Qualite,
-} from "./generated/prisma";
+} from "#prisma";
